@@ -1,8 +1,8 @@
 package uaslp.objetos.figuras;
 
 public class Triangulo implements Figura {
-    private double base;
-    private double altura;
+    protected double base;
+    protected double altura;
     protected String description;
     protected String name;
 
@@ -32,8 +32,13 @@ public class Triangulo implements Figura {
         return (altura);
     }
 
-    public double getArea() {
-        return base * altura / 2;
+    public double getArea() throws DatoFaltanteException {
+        if (base == 0)
+            throw new BaseNoProvistaException();
+        else if (altura == 0)
+            throw new AlturaNoProvistaException();
+        else
+            return base * altura / 2;
     }
 
     public String getDescription() {

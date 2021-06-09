@@ -5,12 +5,16 @@ public class PoligonoRegular implements Figura {
     private double numeroDeLados;
     private String name;
 
-    public PoligonoRegular(){
+    public PoligonoRegular() {
         name = "Poligono Regular";
     }
-    public PoligonoRegular(double numeroDeLados) {
-        this.numeroDeLados = numeroDeLados;
+
+    public PoligonoRegular(double numeroDeLados) throws NumeroInvalidoDeLados {
         name = "Poligono Regular";
+        if (numeroDeLados < 5)
+            throw new NumeroInvalidoDeLados("Número de lados válido a partir de 5");
+        else
+            this.numeroDeLados = numeroDeLados;
     }
 
     public PoligonoRegular(double numeroDeLados, double lado) {
@@ -27,8 +31,10 @@ public class PoligonoRegular implements Figura {
         return (lado);
     }
 
-    public double getArea() {
-        return ((lado * numeroDeLados) * (Math.sqrt(Math.pow(lado, 2) - Math.pow(lado / 2, 2))) / 2);
+    public double getArea() throws DatoFaltanteException {
+        if (lado == 0)
+            throw new DatoFaltanteException();
+        else return ((lado * numeroDeLados) * (Math.sqrt(Math.pow(lado, 2) - Math.pow(lado / 2, 2))) / 2);
     }
 
     public String getName() {

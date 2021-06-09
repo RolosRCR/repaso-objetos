@@ -21,8 +21,11 @@ public class Cuadrado implements Figura {
         return (lado);
     }
 
-    public double getArea() {
-        return (lado * lado);
+    public double getArea() throws LadoNoProvistoException {
+        if (lado==0)
+            throw new LadoNoProvistoException();
+        else
+            return (lado * lado);
     }
 
     @Override
