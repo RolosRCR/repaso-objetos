@@ -5,8 +5,12 @@ public class PoligonoRegular implements Figura {
     private double numeroDeLados;
     private String name;
 
+    public PoligonoRegular(){
+        name = "Poligono Regular";
+    }
     public PoligonoRegular(double numeroDeLados) {
         this.numeroDeLados = numeroDeLados;
+        name = "Poligono Regular";
     }
 
     public PoligonoRegular(double numeroDeLados, double lado) {
